@@ -19,7 +19,7 @@ blueprint:
       description: Vyber podmínku která má být splněna
       selector:
         entity:
-          integration: sun
+          integration: sun.sunset
           multiple: false
     lide:
       name: Lidé
