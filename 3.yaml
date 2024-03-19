@@ -55,8 +55,8 @@ condition:
     - condition: state
       entity_id: !input lide
       state: !input lokace
-action: !input akce
-  
+  default: []
+action: !input akce  
 mode: single
 
 
