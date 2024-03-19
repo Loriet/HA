@@ -22,7 +22,7 @@ blueprint:
         boolean:
     lide:
       name: Lidé
-      description: Vyber kdo má být doma 
+      description: Vyber osobu 
       selector:
         entity:
           integration: person
