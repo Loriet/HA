@@ -51,9 +51,9 @@ condition:
   - condition: sun
     before: sunrise
     before: sunset
-  - condition: state
+  - condition: zone
     entity_id: !input lide
-    state: !input lokace
+    zone: !input lokace
 action: !input akce  
 mode: single
 
