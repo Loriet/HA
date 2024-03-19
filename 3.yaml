@@ -16,7 +16,7 @@ blueprint:
           multiple: false
     slunce:
       name: Slunce 
-      description: Vyber podmínku která má být splněna
+      description: Běží jen po západu slunce NE/ANO
       default: false
       selector:
         boolean:
