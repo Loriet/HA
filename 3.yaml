@@ -6,6 +6,13 @@ blueprint:
   source_url: https://github.com/Loriet/HA/blob/main/3.yaml
 
   input:
+    budik_pomocnik:
+      name: Pomocník 
+      description: Vyber pomocníka pro datum a čas
+      selector:
+        entity:
+          integration: input_datetime
+          multiple: false
     mobil_budik:
       name: Budík mobilu
       description: Vyber zařízení s budíkem
@@ -44,8 +51,13 @@ variables:
   slunce: !input slunce
 trigger:
   - platform: time
-    at: !input mobil_budik
+    at: !input budik_pomocnik
+    id: pockej
+  - platform: state
+    entity_id: !input mobil_budik
 condition:
+  - condition: trigger
+    id: pockej
   - condition: template
     value_template: "{{ slunce == false }}"
   - condition: sun
