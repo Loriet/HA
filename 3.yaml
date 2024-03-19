@@ -54,11 +54,7 @@ condition:
   - condition: state
     entity_id: !input lide
     state: !input lokace
-action:
-  - type: !input akce
-    device_id: !input akce
-    entity_id: !input akce
-    domain: !input akce
+action: !input akce
 mode: single
 
 
