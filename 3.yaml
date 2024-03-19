@@ -3,7 +3,7 @@ blueprint:
   description: Po zazvonění budíku v mobilu a splněných podmínkách spustí akci
   domain: automation
   author: m
-  source_url:
+  source_url: https://github.com/Loriet/HA/blob/main/3.yaml
 
   input:
     mobil_budik:
