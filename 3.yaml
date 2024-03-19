@@ -46,14 +46,15 @@ trigger:
   - platform: time
     at: !input mobil_budik
 condition:
-  - condition: template
-    value_template: "{{ slunce == false }}"
-  - condition: sun
-    before: sunrise
-    before: sunset
-  - condition: state
-    entity_id: !input lide
-    state: !input lokace
+  -choose:
+    - condition: template
+      value_template: "{{ slunce == false }}"
+    - condition: sun
+      before: sunrise
+      before: sunset
+    - condition: state
+      entity_id: !input lide
+      state: !input lokace
 action: !input akce
   
 mode: single
