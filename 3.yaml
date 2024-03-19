@@ -1,0 +1,68 @@
+blueprint:
+  name: Budík
+  description: Po zazvonění budíku v mobilu a splněných podmínkách spustí akci
+  domain: automation
+  author: m
+  source_url:
+
+  input:
+    mobil_budik:
+      name: Budík mobilu
+      description: Vyber zařízení s budíkem
+      selector:
+        entity:
+          integration: mobile_app
+          device_class: timestamp
+          multiple: false
+    slunce:
+      name: Slunce 
+      description: Vyber podmínku která má být splněna
+      selector:
+        entity:
+          integration: sun.sun
+          multiple: false
+    lide:
+      name: Lidé
+      description: Vyber kdo má být doma 
+      selector:
+        entity:
+          integration: person
+          multiple: false
+    lokace:
+      name: Lokace
+      description: Vyberte lokaci kde se má osoba nacházet
+      selector:
+        entity:
+        integration: zone
+        multiple: false
+    akce:
+      name: Akce 
+      description: Vyber zařízení, které má být spuštěno
+      default: []
+      selector:
+        action: {}
+variables:
+  slunce: !input slunce
+trigger:
+  - platform: time
+    at: !input mobil_budik
+condition:
+  - condition: state
+    entity_id: slunce
+    state: !input slunce
+  - condition: state
+    entity_id: !input lide
+    state: !input lokace
+action:
+  - type: !input akce
+    device_id: !input akce
+    entity_id: !input akce
+    domain: !input akce
+mode: single
+
+
+    
+
+
+
+
