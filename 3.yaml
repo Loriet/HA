@@ -19,7 +19,7 @@ blueprint:
       description: Vyber podmínku která má být splněna
       selector:
         entity:
-          integration: sunset
+          integration: sun
           multiple: false
     lide:
       name: Lidé
@@ -47,9 +47,9 @@ trigger:
   - platform: time
     at: !input mobil_budik
 condition:
-  - condition: state
-    entity_id: slunce
-    state: !input slunce
+  - condition: !input slunce
+    after: !input slunce
+    before: !input slunce
   - condition: state
     entity_id: !input lide
     state: !input lokace
